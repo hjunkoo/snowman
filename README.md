@@ -17,29 +17,17 @@
 
 | **권도현** | **구현준** | **이수현** | **류태안** |
 | :------: |  :------: | :------: | :------: |
-| <img src="https://github.com/user-attachments/assets/5b210033-1fd0-45e9-b22e-571fe955df21" height=180 width=150>| <img src="https://github.com/user-attachments/assets/115d6c7c-4e78-4057-8436-fb73508a2dc8" height=180 width=150>| <img src="https://github.com/user-attachments/assets/c40d7b0d-f7b1-4572-bada-710346446bdb" height=200 width=150>| <img src="https://github.com/user-attachments/assets/5ca8c56b-651b-4b1a-9b5a-8d73342d7592" height=180 width=150>|
+| <img src="https://github.com/user-attachments/assets/5b210033-1fd0-45e9-b22e-571fe955df21" height=200 width=150>| <img src="https://github.com/user-attachments/assets/115d6c7c-4e78-4057-8436-fb73508a2dc8" height=200 width=150>| <img src="https://github.com/user-attachments/assets/c40d7b0d-f7b1-4572-bada-710346446bdb" height=200 width=150>| <img src="https://github.com/user-attachments/assets/5ca8c56b-651b-4b1a-9b5a-8d73342d7592" height=200 width=150>|
 
 </div>
 
 
 <br>
 
-## 1. 개발 환경
 
-- Front : HTML, React, styled-components, Recoil
-- Back-end : 제공된 API 활용
-- 버전 및 이슈관리 : Github, Github Issues, Github Project
-- 협업 툴 : Discord, Notion, Github Wiki
-- 서비스 배포 환경 : Netlify
-- 디자인 : [Figma](https://www.figma.com/file/fAisC2pEKzxTOzet9CfqML/README(oh-my-code)?node-id=39%3A1814)
-- [커밋 컨벤션](https://github.com/likelion-project-README/README/wiki/%EC%BB%A4%EB%B0%8B-%EC%BB%A8%EB%B2%A4%EC%85%98)
-- [코드 컨벤션](https://github.com/likelion-project-README/README/wiki/%EC%BD%94%EB%93%9C-%EC%BB%A8%EB%B2%A4%EC%85%98)
-- [스프라이트](https://github.com/likelion-project-README/README/wiki/%EC%8A%A4%ED%94%84%EB%9D%BC%EC%9D%B4%ED%8A%B8)
-<br>
+## 1. 응용 기술과 활용방안
 
-## 2. 채택한 개발 기술과 브랜치 전략
-
-### React, styled-component
+### function calling
 
 - React
     - 컴포넌트화를 통해 추후 유지보수와 재사용성을 고려했습니다.
@@ -49,7 +37,7 @@
     - 빌드될 때 고유한 클래스 이름이 부여되어 네이밍 컨벤션을 정하는 비용을 절약할 수 있었습니다.
     - S dot naming을 통해 일반 컴포넌트와 스타일드 컴포넌트를 쉽게 구별하도록 했습니다.
     
-### Recoil
+### discord
 
 - 최상위 컴포넌트를 만들어 props로 유저 정보를 내려주는 방식의 경우 불필요한 props 전달이 발생합니다. 따라서, 필요한 컴포넌트 내부에서만 상태 값을 가져다 사용하기 위해 상태 관리 라이브러리를 사용하기로 했습니다.
 - Redux가 아닌 Recoil을 채택한 이유
@@ -57,98 +45,13 @@
     - 또한 Redux보다 훨씬 적은 코드라인으로 작동 가능하다는 장점이 있었습니다.
 - 로그인과 최초 프로필 설정 시 유저 정보를 atom에 저장하여 필요한 컴포넌트에서 구독하는 방식으로 사용했습니다.
 
-### eslint, prettier
-
-- 정해진 규칙에 따라 자동적으로 코드 스타일을 정리해 코드의 일관성을 유지하고자 했습니다.
-- 코드 품질 관리는 eslint에, 코드 포맷팅은 prettier에 일임해 사용했습니다.
-- airbnb의 코딩 컨벤션을 참고해 사용했고, 예외 규칙은 팀원들과 협의했습니다.
-- 협업 시 매번 컨벤션을 신경 쓸 필요 없이 빠르게 개발하는 데에 목적을 두었습니다.
-
-### 브랜치 전략
-
-- Git-flow 전략을 기반으로 main, develop 브랜치와 feature 보조 브랜치를 운용했습니다.
-- main, develop, Feat 브랜치로 나누어 개발을 하였습니다.
-    - **main** 브랜치는 배포 단계에서만 사용하는 브랜치입니다.
-    - **develop** 브랜치는 개발 단계에서 git-flow의 master 역할을 하는 브랜치입니다.
-    - **Feat** 브랜치는 기능 단위로 독립적인 개발 환경을 위하여 사용하고 merge 후 각 브랜치를 삭제해주었습니다.
-
 <br>
 
-## 3. 프로젝트 구조
 
-```
-├── README.md
-├── .eslintrc.js
-├── .gitignore
-├── .prettierrc.json
-├── package-lock.json
-├── package.json
-│
-├── public
-│    └── index.html
-└── src
-     ├── App.jsx
-     ├── index.jsx
-     ├── api
-     │     └── mandarinAPI.js
-     ├── asset
-     │     ├── fonts
-     │     ├── css_sprites.png
-     │     ├── logo-404.svg
-     │     └── logo-home.svg
-     │          .
-     │          .
-     │          .
-     ├── atoms
-     │     ├── LoginData.js
-     │     └── LoginState.js
-     ├── common
-     │     ├── alert
-     │     │     ├── Alert.jsx
-     │     │     └── Alert.Style.jsx
-     │     ├── button
-     │     ├── comment
-     │     ├── inputBox
-     │     ├── post
-     │     ├── postModal
-     │     ├── product
-     │     ├── tabMenu
-     │     ├── topBanner
-     │     └── userBanner
-     ├── pages
-     │     ├── addProduct
-     │     │     ├── AddProduct.jsx
-     │     │     └── AddProduct.Style.jsx
-     │     ├── chatList
-     │     ├── chatRoom
-     │     ├── emailLogin
-     │     ├── followerList
-     │     ├── followingList
-     │     ├── home
-     │     ├── join
-     │     ├── page404
-     │     ├── postDetail
-     │     ├── postEdit
-     │     ├── postUpload
-     │     ├── productEdit
-     │     ├── profile
-     │     ├── profileEdit
-     │     ├── profileSetting
-     │     ├── search
-     │     ├── snsLogin
-     │     └── splash
-     ├── routes
-     │     ├── privateRoutes.jsx
-     │     └── privateRoutesRev.jsx  
-     └── styles
-           └── Globalstyled.jsx
-```
 
-<br>
+## 2. 역할 분담
 
-## 4. 역할 분담
-
-### 🍊고지연
+### 🍊권도현
 
 - **UI**
     - 페이지 : 홈, 검색, 게시글 작성, 게시글 수정, 게시글 상세, 채팅방
@@ -158,7 +61,7 @@
 
 <br>
     
-### 👻김민제
+### 👻구현준
 
 - **UI**
     - 페이지 : 프로필 설정, 프로필 수정, 팔로잉&팔로워 리스트, 상품 등록, 상품 수정, 채팅 목록, 404 페이지
@@ -168,7 +71,7 @@
 
 <br>
 
-### 😎양희지
+### 😎이수현
 
 - **UI**
     - 페이지 : splash 페이지, sns 로그인 페이지, 로그인, 회원가입
@@ -178,7 +81,7 @@
 
 <br>
 
-### 🐬지창언
+### 🐬류태안
 
 - **UI**
     - 페이지 : 사용자 프로필 페이지
@@ -188,7 +91,7 @@
     
 <br>
 
-## 5. 개발 기간 및 작업 관리
+## 3. 프로젝트 기간 및 측정 장소
 
 ### 개발 기간
 
@@ -198,22 +101,14 @@
 
 <br>
 
-### 작업 관리
+### 측정 장소
 
 - GitHub Projects와 Issues를 사용하여 진행 상황을 공유했습니다.
 - 주간회의를 진행하며 작업 순서와 방향성에 대한 고민을 나누고 GitHub Wiki에 회의 내용을 기록했습니다.
 
 <br>
 
-## 6. 신경 쓴 부분
-
-- [접근제한 설정](https://github.com/likelion-project-README/README/wiki/README-6.%EC%8B%A0%EA%B2%BD-%EC%93%B4-%EB%B6%80%EB%B6%84_%EC%A0%91%EA%B7%BC%EC%A0%9C%ED%95%9C-%EC%84%A4%EC%A0%95)
-
-- [Recoil을 통한 상태관리 및 유지](https://github.com/likelion-project-README/README/wiki/README-6.%EC%8B%A0%EA%B2%BD-%EC%93%B4-%EB%B6%80%EB%B6%84_Recoil%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%83%81%ED%83%9C%EA%B4%80%EB%A6%AC-%EB%B0%8F-%EC%9C%A0%EC%A7%80)
-
-<br>
-
-## 7. 페이지별 기능
+## 4. 프로젝트 세부내용
 
 ### [초기화면]
 - 서비스 접속 초기화면으로 splash 화면이 잠시 나온 뒤 다음 페이지가 나타납니다.
@@ -419,18 +314,17 @@
 | 채팅 |
 |----------|
 |![chat](https://user-images.githubusercontent.com/112460466/210386478-ea4877c5-1728-4872-ab50-a8408ddf6dcd.gif)|
-
 <br>
 
-## 8. 트러블 슈팅
+## 5. 시행착오
 
-- [탭메뉴 프로필 버튼 이슈](https://github.com/likelion-project-README/README/wiki/README-8.%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85_%ED%83%AD%EB%A9%94%EB%89%B4-%ED%94%84%EB%A1%9C%ED%95%84-%EB%B2%84%ED%8A%BC-%EC%9D%B4%EC%8A%88)
+- [접근제한 설정](https://github.com/likelion-project-README/README/wiki/README-6.%EC%8B%A0%EA%B2%BD-%EC%93%B4-%EB%B6%80%EB%B6%84_%EC%A0%91%EA%B7%BC%EC%A0%9C%ED%95%9C-%EC%84%A4%EC%A0%95)
 
-- [프로필 수정 이슈](https://github.com/likelion-project-README/README/wiki/README-8.%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85_%ED%94%84%EB%A1%9C%ED%95%84-%EC%88%98%EC%A0%95-%EC%9D%B4%EC%8A%88)
-
+- [Recoil을 통한 상태관리 및 유지](https://github.com/likelion-project-README/README/wiki/README-6.%EC%8B%A0%EA%B2%BD-%EC%93%B4-%EB%B6%80%EB%B6%84_Recoil%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%83%81%ED%83%9C%EA%B4%80%EB%A6%AC-%EB%B0%8F-%EC%9C%A0%EC%A7%80)
+  
 <br>
 
-## 9. 개선 목표
+## 6. 개선 방안
 
 - API 모듈화 : API를 불러오는 코드의 반복이 많아 모듈화할 예정
 - lighthouse Performance 증진
@@ -453,22 +347,22 @@
     
 <br>
 
-## 10. 프로젝트 후기
+## 7. 프로젝트 후기
 
-### 🍊 고지연
+### 🍊권도현
 
 깃헙을 통한 협업에 익숙해지는 것, 서로 감정 상하지 않고 무사히 마무리하는 것이 1차적인 목표였어서 항상 이 부분을 명심하면서 작업했습니다.
 각자 페이지를 작업하고 합치는 과정에서 마주친 버그들이 몇 있었는데, 시간에 쫓기느라 해결하기에 급급해서 제대로 트러블슈팅 과정을 기록하지 못한 게 살짝 아쉬운 부분으로 남습니다. 그래도 2022년 한 해 동안 가장 치열하게 살았던 한 달인 것 같습니다. 조원들 모두에게 고생했다고 전하고 싶습니다🧡
 
 <br>
 
-### 👻 김민제
+### 👻구현준
 
 여러모로 많은 것들을 배울 수 있었던 한 달이었습니다. 혼자서는 할 수 없었던 일이라는 것을 너무 잘 알기에 팀원들에게 정말 감사하다는 말 전하고 싶습니다. 개인적으로 아쉬웠던 부분은 기한 내에 기능을 구현하는 데에만 집중하면서 트러블 슈팅이나 새로 배웠던 것들을 체계적으로 기록하지 못했다는 점입니다. 이렇게 느낀 바가 있으니 이후의 제가 잘 정리하면서 개발할 거라 믿습니다… 하하 다들 수고하셨습니다!!!!
 
 <br>
 
-### 😎 양희지
+### 😎이수현
 
 팀 프로젝트 시작에 앞서 초기 설정을 진행하며 체계적인 설계의 중요성을 느꼈습니다. 앞으로는 점점 더 체계적이고 효율적으로 프로젝트를 진행할 수 있도록 발전하고 싶습니다.
 정규 수업 직후에 프로젝트를 진행하면서 배운 내용을 직접 구현하는 과정이 어색했지만 어떤 부분이 부족한지 알 수 있는 기회였습니다. 스스로 최대한 노력해보고 팀원들과 함께 해결해 나가면서 협업의 장점을 체감할 수 있었습니다. 하지만 빠르게 작업을 진행하면서 팀원들과 함께 해결한 이슈가 어떤 이슈이며 어떻게 해결했는지에 대해 자세히 작성하지 못한 것이 아쉽습니다.
@@ -476,6 +370,6 @@
 
 <br>
 
-### 🐬 지창언
+### 🐬류태안
 
 컨벤션을 정하는 것부터 Readme 파일 작성까지 전 과정을 진행하려니 처음 생각보다 많은 에너지를 썼어요. 좋은 의미로 많이 썼다기보다, 제 능력을 십분 발휘하지 못해서 아쉬움이 남는 쪽입니다. 개발한다고 개발만 해서는 안 된다는 것을 몸소 느껴보는 기간이었던 것 같습니다. 이번 기회로 프로젝트를 진행하면서, 제가 잘하는 점과 부족한 점을 확실하게 알고 가는 건 정말 좋습니다. 기술적인 부분에 있어서는 리액트의 컴포넌트화가 주는 장점을 알았습니다. 조금 느린 개발이 되었을지라도 코드 가독성 부분에 있어서 좋았고, 오류가 발생해도 전체가 아닌 오류가 난 컴포넌트와 근접한 컴포넌트만 살펴보면 수정할 수 있는 부분이 너무 편했습니다. 모두 고생 참 많으셨고 리팩토링을 통해 더 나은 프로젝트 완성까지 화이팅입니다.
