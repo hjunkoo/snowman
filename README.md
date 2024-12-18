@@ -181,11 +181,11 @@
 
 ---
 
-- **결과**:
-    - 실내-실외 데이터 비교
-        - 실내 PM2.5 값이 기준치를 초과하면, 실외 PM2.5 데이터를 확인하여 환기 여부를 판단할 수 있었습니다.
-    - 사용자 알림 시스템
-        - 디스코드 챗봇을 통해 환기 필요 메시지를 실시간으로 사용자에게 전달하였습니다.
+- **결과**
+  
+| indoor > outdoor | indoor < outdoor |
+| :------: |  :------: |
+| <img src="https://github.com/user-attachments/assets/7ba517c3-1148-4664-aab4-419e50870377" height=300 width=300>| <img src="https://github.com/user-attachments/assets/0f6893db-afef-4eb1-8666-1765c4b11563" height=300 width=300>|
 
 
 <br>
@@ -302,12 +302,6 @@
             return "실내 공기질이 더 높습니다. 환기가 필요합니다."
         return "실내 측정값이 더 낮습니다. 창문을 닫으세요"
     ```
-    - Gradio를 통해 연산 결과를 UI에 표시했습니다.
-
-
-| indoor > outdoor | indoor < outdoor |
-| :------: |  :------: |
-| <img src="https://github.com/user-attachments/assets/7ba517c3-1148-4664-aab4-419e50870377" height=300 width=300>| <img src="https://github.com/user-attachments/assets/0f6893db-afef-4eb1-8666-1765c4b11563" height=300 width=300>|
 
 
 <br>
