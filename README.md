@@ -171,7 +171,7 @@
 
 ### Google Colab 코드
 에어코리아 OpenAPI와 실내 데이터를 비교 분석한 코드는 아래 링크에서 확인할 수 있습니다.  
-👉 [Google Colab 코드 보기](https://colab.research.google.com/drive/1uO17q-Awr4OyG6uBWWWZX9RbH9WJGxBQ)
+👉 [Google Colab 코드 보기](project_CODE%20(1).ipynb)
 
 
 ---
