@@ -134,7 +134,7 @@
 |----------|
 |![image](https://github.com/user-attachments/assets/de3fe5e8-9d60-409f-9d32-eb0ca83c07f3)|
 
-    - **핀 연결**
+  - **핀 연결**
         - **빨간색 (VCC)**: 5V 핀
         - **검은색 (GND)**: GND 핀
         - **노란색 (DATA)**: D8 핀
