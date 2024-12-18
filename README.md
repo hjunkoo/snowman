@@ -169,6 +169,11 @@
         - 수집된 실외 PM2.5 값은 실내 값과 함께 분석되어 Gradio UI를 통해 시각적으로 표현되었습니다.
         - 디스코드 알림 시스템과 연계하여, 실내 미세먼지 값이 기준치를 초과한 경우 실외 미세먼지 상태를 함께 제공하여 사용자가 환기 필요 여부를 판단할 수 있도록 지원하였습니다.
 
+### Google Colab 코드
+에어코리아 OpenAPI와 실내 데이터를 비교 분석한 코드는 아래 링크에서 확인할 수 있습니다.  
+👉 [Google Colab 코드 보기](https://colab.research.google.com/drive/1uO17q-Awr4OyG6uBWWWZX9RbH9WJGxBQ)
+
+
 ---
 
 - **결과**:
