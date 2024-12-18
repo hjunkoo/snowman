@@ -90,7 +90,7 @@
 
 - 충남대학교 공대 3호관 515호 환경공학과 학생회실
 
-<img src="https://github.com/user-attachments/assets/b3fc8b72-4173-422e-8501-d53862660097" height=500 width=400>
+<img src="https://github.com/user-attachments/assets/b3fc8b72-4173-422e-8501-d53862660097" height=400 width=400>
 
 <br>
 
