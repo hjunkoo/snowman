@@ -89,7 +89,8 @@
 ### 측정 장소
 
 - 충남대학교 공대 3호관 515호 환경공학과 학생회실
-
+  
+<img src="![image](https://github.com/user-attachments/assets/34e5ea24-6b65-402a-9bd7-5f4c3132abfa)" height=500 width=400>
 
 <br>
 
@@ -132,7 +133,7 @@
     
 | 회로도 |
 |----------|
-|![image](https://github.com/user-attachments/assets/de3fe5e8-9d60-409f-9d32-eb0ca83c07f3)|
+|<img src="https://github.com/user-attachments/assets/de3fe5e8-9d60-409f-9d32-eb0ca83c07f3" height=500 width=800>|
 
   - **핀 연결**
     
@@ -216,7 +217,7 @@
 ---
 
 ### **챗봇 알림 메시지 예시**
-| <img src="https://github.com/user-attachments/assets/132b5e9b-c93e-41ea-8409-60b92ae40d3a" height=500 width=250>|
+<img src="https://github.com/user-attachments/assets/132b5e9b-c93e-41ea-8409-60b92ae40d3a" height=500 width=250>
 
 
 ---
@@ -236,12 +237,107 @@
 
 ## 5. 시행착오
 
-- [접근제한 설정](https://github.com/likelion-project-README/README/wiki/README-6.%EC%8B%A0%EA%B2%BD-%EC%93%B4-%EB%B6%80%EB%B6%84_%EC%A0%91%EA%B7%BC%EC%A0%9C%ED%95%9C-%EC%84%A4%EC%A0%95)
+- **(1) OpenAI 및 Gradio 버전 호환성 문제**  
+    - 주피터 노트북 환경에서 OpenAI와 Gradio 라이브러리의 버전 충돌로 인해 Gradio 챗이 정상적으로 작동하지 않는 문제가 발생하였습니다.  
 
-- [Recoil을 통한 상태관리 및 유지](https://github.com/likelion-project-README/README/wiki/README-6.%EC%8B%A0%EA%B2%BD-%EC%93%B4-%EB%B6%80%EB%B6%84_Recoil%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%83%81%ED%83%9C%EA%B4%80%EB%A6%AC-%EB%B0%8F-%EC%9C%A0%EC%A7%80)
-  
+| Gradio 버전 |
+|----------|
+| <img src="https://github.com/user-attachments/assets/02e40109-83c3-4f6c-8de0-144b9af3a2e5" height=300 width=300>|
+
 <br>
 
+- **(2) 에어코리아 API 사용의 어려움**  
+    - API 호출 시 데이터 요청 형식 및 응답 구조를 파악하는 과정에서 어려움이 있었습니다.  
+
+<br>
+
+- **(3) Gradio 챗봇 연산 함수 설정의 어려움**  
+    - 실내 **실시간 측정 값**과 **실외 API 값**을 비교하는 연산 함수를 설정하는 과정이 복잡했습니다.  
+
+<br>
+
+- **(4) 젯슨 나노 카메라와 이미지 데이터 처리 문제**  
+    - 젯슨 나노의 카메라를 사용해 문이 열리고 닫힌 상태를 감지하려 했지만, 이미지 처리 구현이 어려웠습니다.  
+
+<br>
+
+- **(5) 디스코드 실내 미세먼지 알림 봇 구현 문제**  
+    - 초기에는 휴대폰 디스코드 앱으로 알림이 전달되지 않는 문제가 있었습니다.
+  
+---
+
+## 5-1. 시행착오 해결 방법
+
+- **(1) OpenAI 및 Gradio 버전 호환성 문제 해결**  
+    - Gradio 버전을 **3.0.12**, OpenAI 버전을 **0.8.0**으로 재설치하여 호환성 문제를 해결했습니다.  
+    - 버전 재설치 코드:  
+    ```bash
+    pip install gradio==3.0.12
+    pip install openai==0.8.0
+    ```
+    - 해당 조치를 통해 Gradio 챗과 OpenAI API 호출이 정상적으로 작동하였습니다.
+
+<br>
+
+- **(2) 에어코리아 API 사용의 어려움 해결**  
+    - API 명세서를 참고하여 요청 파라미터와 응답 구조를 명확히 파악했습니다.  
+    - API 요청 코드 예시:  
+    ```python
+    import requests
+
+    url = "http://api.airkorea.or.kr"
+    params = {"region": "대전", "serviceKey": "YOUR_API_KEY"}
+    response = requests.get(url, params=params)
+    print(response.json())
+    ```
+
+<br>
+
+- **(3) Gradio 챗봇 연산 함수 설정 해결**  
+    - 실내외 데이터를 비교하기 위해 Python 함수 내에 연산 로직을 구현했습니다.  
+    ```python
+    def compare_pm25(indoor, outdoor):
+        if indoor > outdoor:
+            return "실내 공기질이 더 높습니다. 환기가 필요합니다."
+        return "실내 측정값이 더 낮습니다. 창문을 닫으세요"
+    ```
+    - Gradio를 통해 연산 결과를 UI에 표시했습니다.
+
+
+| indoor > outdoor | indoor < outdoor |
+| :------: |  :------: |
+| <img src="https://github.com/user-attachments/assets/7ba517c3-1148-4664-aab4-419e50870377" height=300 width=300>| <img src="https://github.com/user-attachments/assets/0f6893db-afef-4eb1-8666-1765c4b11563" height=300 width=300>|
+
+
+<br>
+
+- **(4) 젯슨 나노 카메라 이미지 데이터 처리 방향 수정**  
+    - 이미지 데이터 처리가 복잡하고 시간 소모가 커서 미세먼지 측정 및 알림 챗봇 시스템을 구현하였습니다.
+
+<br>
+
+- **(5) 디스코드 실내 미세먼지 알림 봇 문제 해결**  
+    - 디스코드 봇의 채널 ID와 메시지 전송 코드를 수정하여 정상적으로 알림이 수신되도록 하였습니다.  
+    ```python
+    import discord
+
+    TOKEN = "YOUR_BOT_TOKEN"
+    CHANNEL_ID = 123456789012345678
+
+    client = discord.Client(intents=discord.Intents.default())
+
+    @client.event
+    async def on_ready():
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send("✅ 정상: 실내 PM2.5 값이 정상입니다.")
+    client.run(TOKEN)
+    ```
+    - **결과**: 휴대폰 앱에 알림이 정상적으로 수신되었습니다.  
+
+
+<br>
+
+    
 ## 6. 개선 방안
 
 
@@ -276,7 +372,7 @@
 
 ### 👻구현준
 
-여러모로 많은 것들을 배울 수 있었던 한 달이었습니다. 혼자서는 할 수 없었던 일이라는 것을 너무 잘 알기에 팀원들에게 정말 감사하다는 말 전하고 싶습니다. 개인적으로 아쉬웠던 부분은 기한 내에 기능을 구현하는 데에만 집중하면서 트러블 슈팅이나 새로 배웠던 것들을 체계적으로 기록하지 못했다는 점입니다. 이렇게 느낀 바가 있으니 이후의 제가 잘 정리하면서 개발할 거라 믿습니다… 하하 다들 수고하셨습니다!!!!
+여러모로 많은 것들을 배울 수 있었던 한 달이었습니다. 혼자서는 할 수 없었던 일이라는 것을 너무 잘 알기에 팀원들에게 정말 감사하다는 말 전하고 싶습니다. 개인적으로 아쉬웠던 부분은 기한 내에 기능을 구현하는 데에만 집중하면서 아두이노나 새로 배웠던 것들을 체계적으로 기록하지 못했다는 점입니다. 이렇게 느낀 바가 있으니 이후의 제가 잘 정리할것이라 믿습니다. 다들 수고하셨습니다!!!!
 
 <br>
 
