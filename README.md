@@ -131,7 +131,7 @@
 - **Grove 센서 연결 방법**
     - 아래 이미지처럼 Grove 센서와 아두이노 UNO를 연결하여 데이터를 수집하였습니다.
     
-| 회로도 |
+| fritzing 회로도 |
 |----------|
 |<img src="https://github.com/user-attachments/assets/de3fe5e8-9d60-409f-9d32-eb0ca83c07f3" height=500 width=800>|
 
