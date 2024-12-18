@@ -89,8 +89,8 @@
 ### 측정 장소
 
 - 충남대학교 공대 3호관 515호 환경공학과 학생회실
-  
-<img src="![image](https://github.com/user-attachments/assets/34e5ea24-6b65-402a-9bd7-5f4c3132abfa)" height=500 width=400>
+
+<img src="https://github.com/user-attachments/assets/b3fc8b72-4173-422e-8501-d53862660097" height=500 width=400>
 
 <br>
 
