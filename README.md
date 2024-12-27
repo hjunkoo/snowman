@@ -11,11 +11,11 @@
   
 <br>
 
-## 팀원 구성
+## team member
 
 <div align="center">
 
-| **권도현** | **구현준** | **이수현** | **류태안** |
+| **Kwon Do-hyeon** | **Koo Hyeon-jun** | **Lee soo-hyeon** | **Ryu tae-an** |
 | :------: |  :------: | :------: | :------: |
 | <img src="https://github.com/user-attachments/assets/f7665068-667d-4409-bf56-ea39f9b2bf10" height=200 width=130>| <img src="https://github.com/user-attachments/assets/115d6c7c-4e78-4057-8436-fb73508a2dc8" height=200 width=150>| <img src="https://github.com/user-attachments/assets/c40d7b0d-f7b1-4572-bada-710346446bdb" height=220 width=160>| <img src="https://github.com/user-attachments/assets/5ca8c56b-651b-4b1a-9b5a-8d73342d7592" height=200 width=150>|
 
