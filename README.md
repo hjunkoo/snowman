@@ -188,45 +188,45 @@ The code comparing and analyzing Air Korea OpenAPI and indoor data can be found 
 
 <br>
 
-## (4) 디스코드 챗봇 알림 시스템의 세부 내용
+## (4) Details of Discord Chatbot Notification System
 
-- **디스코드 챗봇 생성**
-    - **봇 생성**: Discord Developer Portal에서 프로젝트용 챗봇을 생성하였습니다.
-    - **토큰 발급**: 챗봇과 서버 간의 통신을 위해 봇 토큰을 발급받고, 이를 코드에 적용하였습니다.
-    - **봇 아이디 설정**: 생성된 챗봇을 디스코드 서버에 초대하고, 해당 봇 아이디를 설정하여 프로젝트에 연동했습니다.
+- **Create a Discord chatbot**
+  - **Bot creation**: Discord Developer Portal created a chatbot for the project.
+  - **Token issued**: Bot tokens have been issued for communication between chatbot and server, and have been applied to code.
+  - **Set Bot ID**: Invited the generated chatbot to the Discord server, set the corresponding bot ID and linked it to the project.
 
-- **알림 시스템 구현**
-   - **임계값 설정**
-        - 임계값은 측정 장소의 특성을 고려하여 평균적인 값을 경험적으로 분석한 뒤, 실험을 통해 임의로 설정하였습니다.
-        - 기준값을 초과할 경우 알림이 울리며, 정상 범위 내에 있을 경우 정상 메시지를 보내도록 구현하였습니다.
-  
-    - **임계값 초과 시 알림**
-        - Grove 센서를 통해 측정된 실내 PM2.5 값이 설정된 임계값을 초과하면, 알림이 자동으로 디스코드 서버에 전송됩니다.
-        - 메시지에는 실내 PM2.5 값과 실외 PM2.5 값(에어코리아 API 데이터)이 함께 포함되며, 사용자가 환기 여부를 쉽게 판단할 수 있도록 구현하였습니다.
+- **Implementation of notification system**
+  - **Set thresholds**
+    - The threshold value was set arbitrarily through experiments after empirically analyzing the average value in consideration of the characteristics of the measurement place.
+    - If the reference value is exceeded, a notification will sound, and if it is within the normal range, a normal message will be sent.
 
-     
-    - **디스코드 서버 연동**
-        - Python의 `discord.py` 라이브러리를 사용해 챗봇을 서버에 연결하고, 실시간 메시지 전송 기능을 구현하였습니다.
-        - 설정된 서버 채널에 실내 공기질 상태와 환기 필요 메시지가 출력됩니다.
+  - **Notify when thresholds are exceeded**
+    - If the indoor PM2.5 value measured by the Grove sensor exceeds the set threshold, a notification is automatically sent to the Discord server.
+    - The message includes the indoor PM2.5 value and the outdoor PM2.5 value (Air Korea API data) together, and has been implemented to make it easier for users to determine whether ventilation is present or not.
 
-    - **핸드폰 알림 연동**
-        - 디스코드 모바일 앱을 통해 사용자 핸드폰에도 실시간 알림이 전달됩니다.
-        - 이로써 사용자들은 실내 미세먼지 상태를 언제 어디서나 빠르게 확인하고 조치를 취할 수 있습니다.
+
+  - **Connect to Discord servers**
+    - Using Python's 'discord.py ' library, we connected chatbots to the server and implemented a real-time message transmission function.
+    - Indoor air quality status and ventilation required messages are output to the set server channel.
+
+  - **Connects mobile phone notifications**
+    - The Discord mobile app also delivers real-time notifications to users' phones.
+    - This allows users to quickly check indoor fine dust conditions anytime, anywhere and take action.
 
 ---
 
-### **챗봇 알림 메시지 예시**
+### **Example Chatbot notification message**
 <img src="https://github.com/user-attachments/assets/132b5e9b-c93e-41ea-8409-60b92ae40d3a" height=500 width=250>
 
 
 ---
 
-### **작동 원리 요약**
-1. **Grove 센서** → 실내 PM2.5 데이터 측정  
-2. **에어코리아 OpenAPI** → 실외 PM2.5 데이터 수집  
-3. **임계값 비교** → 실내 값이 기준 초과 시 챗봇 작동  
-4. **디스코드 서버** → 실시간 알림 전송  
-5. **모바일 앱 연동** → 핸드폰에 푸시 알림 도착  
+### **Summary of operating principles**
+1. **Grove sensor** → indoor PM2.5 data measurement
+2. **AirKorea OpenAPI** → outdoor PM2.5 data collection
+3. **Comparison of thresholds** → Chatbot operated when indoor values exceed criteria
+4. **Discord server** → Send real-time notifications
+5. **Mobile app linked** → Push notification arrives on your phone
 
 
 
@@ -234,53 +234,52 @@ The code comparing and analyzing Air Korea OpenAPI and indoor data can be found 
 
 
 
-## 5. 시행착오
+## 5. trial and error
 
-- **(1) OpenAI 및 Gradio 버전 호환성 문제**  
-    - 주피터 노트북 환경에서 OpenAI와 Gradio 라이브러리의 버전 충돌로 인해 Gradio 챗이 정상적으로 작동하지 않는 문제가 발생하였습니다.  
+- **(1) OpenAI and Gradio Version Compatibility Issues**
+    - In Jupiter laptop environment, the version conflict between OpenAI and the Gradio library caused the Gradio Chat to not function properly. 
 
-| Gradio 버전 |
+| Gradio version |
 |----------|
 | <img src="https://github.com/user-attachments/assets/02e40109-83c3-4f6c-8de0-144b9af3a2e5" height=300 width=300>|
 
 <br>
 
-- **(2) 에어코리아 API 사용의 어려움**  
-    - API 호출 시 데이터 요청 형식 및 응답 구조를 파악하는 과정에서 어려움이 있었습니다.  
+- **(2)Difficulty using Air Korea API**
+    - There were difficulties in identifying the data request format and response structure when calling API.  
 
 <br>
 
-- **(3) Gradio 챗봇 연산 함수 설정의 어려움**  
-    - 실내 **실시간 측정 값**과 **실외 API 값**을 비교하는 연산 함수를 설정하는 과정이 복잡했습니다.  
+- **(3) Difficulty in setting up the Gradio Chatbot operation function**
+    - The process of setting up an operational function to compare indoor **real-time measurements** and **outdoor API values** was complicated. 
 
 <br>
 
-- **(4) 젯슨 나노 카메라와 이미지 데이터 처리 문제**  
-    - 젯슨 나노의 카메라를 사용해 문이 열리고 닫힌 상태를 감지하려 했지만, 이미지 처리 구현이 어려웠습니다.  
+- **(4) Jetson Nano Camera and Image Data Processing Problems**
+    - I tried to detect the door opening and closing using Jetson Nano's camera, but it was difficult to implement the image processing. 
 
 <br>
 
-- **(5) 디스코드 실내 미세먼지 알림 봇 구현 문제**  
-    - 초기에는 휴대폰 디스코드 앱으로 알림이 전달되지 않는 문제가 있었습니다.
+- **(5) Discord Indoor Fine Dust Notification Bot Implementation Problems**
+    - In the beginning, there was a problem that notifications were not delivered to the phone Discord app.
   
 ---
 
-## 5-1. 시행착오 해결 방법
+## 5-1. trial and error solution
 
-- **(1) OpenAI 및 Gradio 버전 호환성 문제 해결**  
-    - Gradio 버전을 **3.0.12**, OpenAI 버전을 **0.8.0**으로 재설치하여 호환성 문제를 해결했습니다.  
-    - 버전 재설치 코드:  
-    ```bash
-    pip install gradio==3.0.12
-    pip install openai==0.8.0
-    ```
-    - 해당 조치를 통해 Gradio 챗과 OpenAI API 호출이 정상적으로 작동하였습니다.
-
+- **(1) Troubleshooting OpenAI and Gradio version compatibility**
+    - Reinstalling the Gradio version to **3.0.12** and the OpenAI version to **0.8.0** resolved the compatibility issue.
+    - Version reinstall code:
+```bash
+        pip install gradio==3.0.12
+        pip install openai==0.8.0
+```
+    - This action enabled the Gradio Chat and OpenAI API calls to function normally.
 <br>
 
-- **(2) 에어코리아 API 사용의 어려움 해결**  
-    - API 명세서를 참고하여 요청 파라미터와 응답 구조를 명확히 파악했습니다.  
-    - API 요청 코드 예시:  
+- **(2) Addressing the difficulties of using Air Korea API**
+    - I clearly identified the request parameters and response structure by referring to the API specification.
+    - API request code example:
     ```python
     import requests
 
@@ -292,8 +291,8 @@ The code comparing and analyzing Air Korea OpenAPI and indoor data can be found 
 
 <br>
 
-- **(3) Gradio 챗봇 연산 함수 설정 해결**  
-    - 실내외 데이터를 비교하기 위해 Python 함수 내에 연산 로직을 구현했습니다.  
+- **(3) Resolving the Gradio Chatbot operation function settings**
+    - To compare indoor and outdoor data, we have implemented computational logic within Python functions.
     ```python
     def compare_pm25(indoor, outdoor):
         if indoor > outdoor:
@@ -304,13 +303,13 @@ The code comparing and analyzing Air Korea OpenAPI and indoor data can be found 
 
 <br>
 
-- **(4) 젯슨 나노 카메라 이미지 데이터 처리 방향 수정**  
-    - 이미지 데이터 처리가 복잡하고 시간 소모가 커서 미세먼지 측정 및 알림 챗봇 시스템을 구현하였습니다.
+- **(4) Modifying the direction of Jetson Nano Camera Image Data Processing**
+    - We implemented a fine dust measurement and notification chatbot system because image data processing is complicated and time consuming.
 
 <br>
 
-- **(5) 디스코드 실내 미세먼지 알림 봇 문제 해결**  
-    - 디스코드 봇의 채널 ID와 메시지 전송 코드를 수정하여 정상적으로 알림이 수신되도록 하였습니다.  
+- **(5) Troubleshooting Discord Indoor Fine Dust Notification Bot**
+    - I modified the channel ID and message sending code of the Discord bot to ensure that the notification was received normally. 
     ```python
     import discord
 
@@ -331,52 +330,52 @@ The code comparing and analyzing Air Korea OpenAPI and indoor data can be found 
 <br>
 
     
-## 6. 개선 방안
+##6. an improvement plan
 
 
-- **(1) 정밀한 임계값 설정**
-    - 현재 임계값은 경험적 평균값을 기반으로 설정되었으나, 측정 환경과 시간대별 공기질 변화를 반영한 동적 임계값 설정이 필요합니다.  
-    - AI 모델을 활용해 장기간의 데이터 학습을 통해 더 정확한 임계값을 예측할 수 있습니다.
+- **(1) Precise threshold setting**
+    - Current thresholds are based on empirical mean values, but dynamic thresholds are required to reflect changes in air quality over time and in the measurement environment.
+    - Using AI models, long-term data learning can predict more accurate thresholds.
 
-- **(2) 실내외 데이터의 상시 모니터링**
-    - Grove 센서와 에어코리아 API 데이터를 지속적으로 수집하여 장기적인 패턴 분석이 가능하도록 데이터베이스를 구축이 필요합니다.  
-    - 실시간 모니터링뿐만 아니라 과거 데이터 시각화 및 예측 기능을 강화하면 사용자에게 더 유용한 정보를 제공할 수 있습니다.
+- **(2) Continuous monitoring of indoor and outdoor data**
+    - It is necessary to establish a database to enable long-term pattern analysis by continuously collecting Grove sensor and Air Korea API data.
+    - As well as real-time monitoring, enhancing historical data visualization and prediction can provide more useful information for users.
 
-- **(3) 실외 데이터 API의 추가 확장**
-    - 에어코리아 OpenAPI 외에도 다른 공공 데이터 API(예: 환경부, 기상청)를 추가로 활용해 더 다양한 대기질 데이터를 확보합니다.  
-    - 이를 통해 측정 오차를 보완하고 지역별 미세먼지 상태를 종합적으로 분석할 수 있습니다.
+- **(3) Further expansion of outdoor data APIs**
+    - In addition to Air Korea OpenAPI, other public data APIs (e.g., Ministry of Environment, Korea Meteorological Administration) are used to obtain more diverse air quality data.
+    - Through this, measurement errors can be supplemented and fine dust conditions by region can be comprehensively analyzed.
 
-- **(4) 자동화된 환기 시스템 연동**
-    - 디스코드 알림뿐만 아니라, 환기 필요 알림이 발생했을 때 자동으로 공기청정기나 환기 장치를 작동시키는 시스템을 연동합니다.  
-    - 이를 위해 IoT 기술을 접목하여 스마트홈 환경에 적용할 수 있습니다.
+- **(4) Integrating an automated ventilation system**
+    - In addition to the Discord notification, it connects a system that automatically activates an air purifier or ventilation device when a ventilation requirement notification occurs.
+    - To this end, IoT technology can be combined and applied to smart home environments.
 
 
 <br>
 
-## 7. 프로젝트 후기
+## 7. Review of the project
 
-### 🍊권도현
+### 🍊Kwon Do-hyeon
 
-잘 알지 못했던 아두이노 및 잿슨 나노와의 연동등을 프로젝트를 진행해보면서 경험해볼 수 있어서 재밌는 경험이였고, 환경공학과로서 미세먼지 농도 데이터를 이용해서 프로젝트를 진행한 만큼 의미있었던 시간이였던 것 같습니다.
-특히 디스코드를 이용해서 미세먼지 알람을 직접 휴대폰으로 확인할 수 있도록 직접 GPT를 이용해서 코딩을 한 부분은 저에게 새롭게 다가왔고 앞으로 관련 부분의 프로그래밍을 좀 더 배우고자 합니다.
-또한 이를 계기로 환경분야와 IT 기술에 대한 관심이 더욱 강해지게 되었습니다. 재미있었습니다~
-
-<br>
-
-### 👻구현준
-
-여러모로 많은 것들을 배울 수 있었던 한 달이었습니다. 혼자서는 할 수 없었던 일이라는 것을 너무 잘 알기에 팀원들에게 정말 감사하다는 말 전하고 싶습니다. 개인적으로 아쉬웠던 부분은 기한 내에 기능을 구현하는 데에만 집중하면서 아두이노나 새로 배웠던 것들을 체계적으로 기록하지 못했다는 점입니다. 이렇게 느낀 바가 있으니 이후의 제가 잘 정리할것이라 믿습니다. 다들 수고하셨습니다!!!!
+It was a fun experience to experience interworking with Arduino and Jatson Nano, which I did not know well, and it was a meaningful time as I worked on the project using fine dust concentration data as an environmental engineering department.
+In particular, the part that I coded using GPT directly so that I can check the fine dust alarm on my phone using Discord has come to me anew, and I would like to learn more about programming related parts in the future.
+It also increased my interest in the environmental field and IT technology. It was fun
 
 <br>
 
-### 😎이수현
+### 👻Koo Hyeon-jun
 
-팀 프로젝트 시작에 앞서 초기 설정을 진행하며 체계적인 설계의 중요성을 느꼈습니다. 앞으로는 점점 더 체계적이고 효율적으로 프로젝트를 진행할 수 있도록 발전하고 싶습니다.
-정규 수업 직후에 프로젝트를 진행하면서 배운 내용을 직접 구현하는 과정이 어색했지만 어떤 부분이 부족한지 알 수 있는 기회였습니다. 스스로 최대한 노력해보고 팀원들과 함께 해결해 나가면서 협업의 장점을 체감할 수 있었습니다. 하지만 빠르게 작업을 진행하면서 팀원들과 함께 해결한 이슈가 어떤 이슈이며 어떻게 해결했는지에 대해 자세히 작성하지 못한 것이 아쉽습니다. 조원들 모두에게 고생했다고 전하고 싶습니다🧡
+It was a month where I was able to learn a lot of things in many ways. I want to say thank you to the team members because I know so well that I couldn't do it alone. Personally, what I felt sorry about was that I couldn't systematically record Arduino or new things I learned while focusing only on implementing functions within the deadline. I've felt this way, so I believe I'll organize it well in the future. Thank you all for your hard work!!!!
 
 <br>
 
-### 🐬류태안
+### 😎Lee Soo-hyeon 
 
-이번 산업인공지능 젯슨 나노 수업을 통해서 가장 와닿았던 점은 실내 공기청정기의 원리를 알 수 있었다는 점 이었습니다. 내가 직접 미세먼지농도를 측정할 수 있고 간단하지만 공기청정기를 만든 것 같아 의미있던 시간이었던 것 같습니다.
-또한 자동으로 저의 핸드폰에 알림이 가는 기능까지 만들 수 있었고 이를 활용하여 잿봇만 있다면 직접 저의 자취방에 설치해보고 싶다는 생각을 했습니다. 자취방의 미세먼지 농도를 측정하면 요리할 때 환기를 해야하는지 알 수 있고, 만약 화재가 일어난다면 제가 외부에 있어도 인지할 수 있을 것 입니다. 이번 시간이 정말 개발자가 된 느낌이었고, 이 경험을 살려 미래에 대기분야에서 직업을 가질 수 있는 기회가 되면 좋겠습니다.
+Prior to the start of the team project, I felt the importance of systematic design as I proceeded with the initial setting. In the future, I want to develop so that I can proceed with the project more and more systematically and efficiently.
+Immediately after the regular class, the process of directly implementing what you learned while working on the project was awkward, but it was an opportunity to know what was lacking. I was able to feel the advantages of collaboration as I tried my best and solved it with my team members. However, it is unfortunate that I could not write in detail what issues I solved with my team members and how I solved them as I proceeded quickly. I would like to say to all of my team members that you worked hard. 🧡
+
+<br>
+
+### 🐬Ryu Tae-an
+
+What touched me the most through this industrial artificial intelligence Jetson nano class was that I was able to know the principle of indoor air purifiers. I can measure the concentration of fine dust myself and it is simple, but I think it was a meaningful time because I made an air purifier.
+Also, I was able to create a function that automatically alerts my phone, and I thought that I would like to install it in my own room if I had a Zabot by using it. By measuring the concentration of fine dust in my own room, I could see if I had to ventilate when cooking, and if a fire broke out, I could recognize it even if I was outside. I really felt like a developer this time, and I hope this will be an opportunity to use this experience to get a job in the air field in the future.
