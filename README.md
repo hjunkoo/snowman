@@ -1,13 +1,13 @@
-# 🖥️ 미세먼지 측정 README 
+# 🖥️ PM 2.5 Measurement
 
 
 <br>
 
-## 프로젝트 소개
+## Introduction to the Project
 
-- 실내와 실외의 미세먼지 농도를 비교 및 답변하는 그라디오 만들기.
-- 실내 미세먼지가 기준치 이상이 될 경우 디스코드 알림 발생.
-- 디스코드와 핸드폰 어플 연동해 알림 즉시 확인.
+- Making a GRADIO that compares and answers the concentration of fine dust indoors and outdoors.
+- Discord notification occurs when indoor fine dust is above the threshold.
+- Link Discord and mobile phone application to check the notification immediately.
   
 <br>
 
