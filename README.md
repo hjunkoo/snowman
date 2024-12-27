@@ -107,79 +107,79 @@
         - Based on OpenAPI specifications, function calling was implemented to efficiently request data and structure response data.
         - We compared and analyzed indoor and outdoor data to support better decision making.
 
-### [챗봇 및 알림시스템]
+### [Chatbot and notification system]
 - **Gradio**
-    - Gradio를 활용해 실내와 실외 미세먼지 데이터를 응답할 수 있는 사용자 인터페이스(UI)를 구축하였습니다.
+    - Using Gradio, we have established a user interface (UI) that can respond to indoor and outdoor fine dust data.
 
-- **디스코드 연동**
-    - 디스코드 API를 사용하여, 실내 미세먼지 값이 특정 임계치를 초과할 경우 사용자에게 "환기가 필요합니다"라는 알림을 자동으로 전송하는 시스템을 구현하였습니다.
+- **Linked to Discord**
+    - Using the Discord API, we implemented a system that automatically sends a notification to the user that "ventilation is required" when the indoor fine dust value exceeds a certain threshold.
 
 ### [function calling]
-- **자동화 및 효율성**
-    - function calling 기법을 적용해 데이터를 요청하고 처리하는 작업을 자동화하였습니다.
-    - 아두이노 Grove 센서 데이터와 에어코리아 API 데이터의 통합 분석을 지원하여, 사용자에게 실시간으로 유용한 정보를 제공합니다.
+- **Automation and Efficiency**
+    - The function calling technique was applied to automate the task of requesting and processing data.
+    - It supports the integrated analysis of Arduino Grove sensor data and Air Korea API data, providing useful information to users in real time.
 
 <br>
 
-## (2) Grove 기기의 세부적인 특성 및 연결 방법
+## (2) Detailed characteristics of Grove devices and how to connect them
 
-- **Grove 센서 시스템**
-    - **모듈화 설계**: Grove 센서는 플러그 앤 플레이 방식을 지원하여 아두이노와 손쉽게 연결할 수 있습니다.
-    - **미세먼지 측정**: PM2.5 및 PM10과 같은 입자 크기를 기반으로 실내 공기질 데이터를 정밀하게 측정합니다.
+- **Grove sensor system**
+    - **Modular design**: Grove sensors support plug-and-play to make it easy to connect with Arduino.
+    - **Measure fine dust**: Accurately measure indoor air quality data based on particle sizes such as PM2.5 and PM10.
 
-- **Grove 센서 연결 방법**
-    - 아래 이미지처럼 Grove 센서와 아두이노 UNO를 연결하여 데이터를 수집하였습니다.
+- **How to connect the Grove sensor**
+    - As shown in the image below, we collected the data by connecting Grove sensor with Arduino UNO.
     
-| fritzing 회로도 |
+| frising circuit diagram |
 |----------|
 |<img src="https://github.com/user-attachments/assets/de3fe5e8-9d60-409f-9d32-eb0ca83c07f3" height=500 width=800>|
 
-  - **핀 연결**
+  - **Pin connection**
     
-      - 빨간색 (VCC): 5V 핀
+      - Red (VCC): 5V pin
     
-      - 검은색 (GND): GND 핀
+      - Black (GND): GND pin
         
-      - 노란색 (DATA): D8 핀
+      - Yellow (DATA): D8 pin
 
 
 ---
 
-- **이번 프로젝트에서 활용**
-    - 센서를 통해 수집된 데이터는 실시간으로 분석되며, 디스코드 알림 시스템을 통해 사용자에게 환기 필요 여부를 알려주었습니다.
-    - Gradio UI를 통해 직관적으로 실내외 미세먼지 데이터를 응답하고 비교할 수 있도록 구현하였습니다.
+- **Using in this project**
+    - The data collected through the sensor is analyzed in real time, and the Discord notification system informed the user of the need for ventilation.
+    - It has been implemented to intuitively respond to and compare indoor and outdoor fine dust data through the Gradio UI.
 
 
 <br>
 
-## (3) 에어코리아 OpenAPI의 특징 및 활용
+## (3) Features and Utilization of Air Korea OpenAPI
 
-- **에어코리아 OpenAPI 특징**
-    - 공공 데이터 제공: 에어코리아 OpenAPI는 국내 실외 대기질 정보를 실시간으로 제공하는 공공 데이터 플랫폼입니다.
-    - 다양한 대기질 항목: 미세먼지(PM10), 초미세먼지(PM2.5), 오존(O3), 이산화질소(NO2) 등 다양한 대기 오염 물질의 농도를 조회할 수 있습니다.
-    - 지역별 데이터 제공: 특정 지역(시·군·구 단위)의 실시간 대기질 정보를 API 호출을 통해 가져올 수 있습니다.
+- **AirKorea OpenAPI features**
+    - Public Data Delivery: Air Korea OpenAPI is a public data platform that provides real-time domestic outdoor air quality information.
+    - Various air quality items: You can check the concentration of various air pollutants such as fine dust (PM10), ultrafine dust (PM2.5), ozone (O3), nitrogen dioxide (NO2).
+    - Provide regional data: Get real-time air quality information for a specific area (city, county, district) via API calls.
 
-- **프로젝트에서의 활용**
-    - 대전지역 PM2.5 데이터 수집
-    - 에어코리아 OpenAPI를 사용해 대전 지역의 초미세먼지(PM2.5) 농도를 실시간으로 가져왔습니다.
-    - API를 통해 받은 실외 PM2.5 값과 Grove 센서를 통해 수집한 실내 PM2.5 값을 비교 분석하였습니다.
+- **Using in the project**
+    - Collecting data for Daejeon area PM2.5
+    - Using Air Korea OpenAPI, the concentration of ultrafine dust (PM2.5) in the Daejeon area was brought in real time.
+    - The outdoor PM2.5 value received through API and the indoor PM2.5 value collected through the Grove sensor were compared and analyzed.
 
-- **데이터 수집 방법**
+- **How to collect data**
     - Function Calling
-        - OpenAPI의 요청 및 응답 구조를 기반으로 function calling 기법을 적용하여 데이터를 효율적으로 가져왔습니다.
-        - 요청 시 대전 지역 코드를 파라미터로 전달하여 해당 지역의 PM2.5 값을 조회.
-    - 데이터 활용
-        - 수집된 실외 PM2.5 값은 실내 값과 함께 분석되어 Gradio UI를 통해 시각적으로 표현되었습니다.
-        - 디스코드 알림 시스템과 연계하여, 실내 미세먼지 값이 기준치를 초과한 경우 실외 미세먼지 상태를 함께 제공하여 사용자가 환기 필요 여부를 판단할 수 있도록 지원하였습니다.
+    - Based on OpenAPI's request and response structure, function calling techniques were applied to efficiently import data.
+    - When requested, the Daejeon area code is delivered as a parameter to query the PM2.5 value of the area.
+    - Utilize data
+    - The collected outdoor PM2.5 values were analyzed together with the indoor values and expressed visually through the Gradio UI.
+    - In connection with the Discord notification system, if the indoor fine dust value exceeds the standard value, the outdoor fine dust condition is provided together to help users determine whether ventilation is necessary.
 
-### Google Colab 코드
-에어코리아 OpenAPI와 실내 데이터를 비교 분석한 코드는 아래 링크에서 확인할 수 있습니다.  
+### Google Colab Code
+The code comparing and analyzing Air Korea OpenAPI and indoor data can be found in the link below.
 👉 [Google Colab 코드 보기](project_CODE%20(1).ipynb)
 
 
 ---
 
-- **결과**
+- **Result**
   
 | indoor > outdoor | indoor < outdoor |
 | :------: |  :------: |
