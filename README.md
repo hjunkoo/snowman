@@ -26,49 +26,48 @@
 
 
 
-## 1. 역할 분담
+## 1. Team Role 
 
-### 🍊권도현
-- **역할**
-    - 전체 코드 구현
-    - 디스코드 알림봇 생성
-    - Github 작성
-
-<br>
-
-### 👻구현준
-- **역할**
-    - 발표
-    - OpenAPI 코드 구현
+### 🍊Kwon Do-hyeon
+- **role**
+    - Full Code Implementation
+    - Create Discord Notification Bot
+    - Create Github
 
 <br>
 
-### 😎이수현
-- **역할**
-    - 전체 코드 구현
-    - 디스코드 알림봇 생성
-    - Github 작성
+### 👻Koo Hyeon-jun
+- **role**
+    - Presentation
+    - Implementing OpenAPI Code
+<br>
+
+### 😎Lee soo-hyeon
+- **role**
+    - Full Code Implementation
+    - Create Discord Notification Bot
+    - Create Github
 
 <br>
 
-### 🐬류태안
-- **역할**
-    - PPT 제작
-    - OpenAPI 코드 구현
+### 🐬Ryu tae-an
+- **role**
+    - Production of PPT
+    - Implementing OpenAPI Code
     
 <br>
 
-## 2. 프로젝트 기간 및 측정 장소
+## 2. Project Duration and Measurement Location
 
-### 프로젝트 기간
+### Project Duration
 
-- 전체 프로젝트 기간 : 2024-12-01 ~ 2025-12-19
+- Full Project Period : 2024-12-01 ~ 2025-12-19
 
 <br>
 
-### 측정 장소
+### Measurement Location
 
-- 충남대학교 공대 3호관 515호 환경공학과 학생회실
+- Student Council of Environmental Engineering Department, Department 515 of Chungnam National University Engineering School
 
 <img src="https://github.com/user-attachments/assets/b3fc8b72-4173-422e-8501-d53862660097" height=400 width=400>
 
@@ -76,38 +75,37 @@
 
 <br>
 
-## 3. 적용 기술 개요
+## 3. Application Technology Overview
 
 ### function calling
 
 - **Gradio 및 Arduino**
-    - Gradio: 실외 미세먼지 데이터와 Arduino를 통해 수집한 실내 미세먼지 데이터를 비교할 수 있는 인터페이스를 제공하였습니다.
+    - Gradio: It provided an interface to compare outdoor fine dust data with indoor fine dust data collected through Arduino.
 - **OpenAPI**
-    - OpenAPI 표준: 에어코리아 API를 통해 실외 미세먼지 데이터를 가져올 때 OpenAPI 스펙을 활용하여 API의 구조와 동작 방식을 구현하였습니다.
-    
+    - OpenAPI Standard: When importing outdoor fine dust data through Air Korea API, OpenAPI specification is used to implement API structure and operation method.
+      
 ### discord
 
-- **디스코드 연동**
-   - 실내 미세먼지 값이 설정한 임계값을 초과할 경우, Discord API를 활용하여 챗봇이 자동으로 알림을 전송하도록 구현하였습니다.
-- **알림 메시지**
-   - 알림 내용에는 실내 미세먼지 값과 함께 "환기가 필요합니다"라는 메시지가 포함되며, 실외 미세먼지 값도 함께 제공하여 사용자가 환기 여부를 판단할 수 있도록 도왔습니다.
-
+- **Linked to Discord**
+   - When the indoor fine dust value exceeds the set threshold, the chatbot is implemented to automatically send a notification using the Discord API.
+- **notification message**
+   - The notification includes the message "Ventilation is required" along with the indoor fine dust value, and the outdoor fine dust value is also provided to help users determine whether ventilation is possible.
 
 <br>
 
-## 4. 프로젝트 세부내용
+## 4. Project Details
 
-## (1) 응용 기술과 활용방안
+## (1) Application Technologies and Utilization Methods
 
-### [측정 기기 및 데이터 수집]
+### [Measuring instruments and data collection]
 
-  - **실내 미세먼지 측정**
-        - 아두이노(Arduino)에 Grove 센서를 연결하여 실내 미세먼지 상태를 실시간으로 측정하였습니다.
-        - 센서를 통해 수집된 데이터를 디스코드 알림 시스템과 연계하여 환기 필요성을 사용자에게 알렸습니다.
-  - **실외 미세먼지 데이터 수집** 
-        - 에어코리아 API를 활용하여 실외 미세먼지 농도를 가져왔습니다.
-        - OpenAPI 스펙을 기반으로 function calling을 구현하여 데이터를 효율적으로 요청하고, 응답 데이터를 구조화하였습니다.
-        - 실내외 데이터를 비교 분석하여 더 나은 의사 결정을 지원했습니다.
+  - **Indoor fine dust measurement**
+        - A Grove sensor was connected to Arduino to measure indoor fine dust conditions in real time.
+        - The data collected through the sensor was linked to the Discord notification system to inform the user of the need for ventilation.
+  - **Outdoor fine dust data collection** 
+        - We used the Air Korea API to bring the concentration of fine dust outdoors.
+        - Based on OpenAPI specifications, function calling was implemented to efficiently request data and structure response data.
+        - We compared and analyzed indoor and outdoor data to support better decision making.
 
 ### [챗봇 및 알림시스템]
 - **Gradio**
